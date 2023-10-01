@@ -24,21 +24,25 @@
       let cardContainer = document.getElementById("recipe-list");
 
       recipeList.forEach((item) => {
+        //div
         const card = document.createElement("div");
         card.classList.add("card");
 
+        //name
         const title = document.createElement("h2");
         title.textContent = item.recipeName;
 
+        //image
         const img = document.createElement("img");
         img.src = item.pictureImage;
         img.alt = "Card Image";
 
+        //button
         const link = document.createElement("button");
         link.id = "view-more";
-        // link.href = "view-recipe.html";
         link.textContent = "view more";
 
+        //ingredients
         const ingredientsList = document.createElement("ul");
         for (i = 0; i < item.ingredients.length; i++) {
           const ingredient = document.createElement("li");
@@ -46,6 +50,7 @@
           ingredientsList.appendChild(ingredient);
         }
 
+        //directions
         const directionsList = document.createElement("ol");
         for (i = 0; i < item.directions.length; i++) {
           const direction = document.createElement("li");
@@ -68,5 +73,9 @@
       console.log(localStorage.getItem("recipeList"));
       location.reload();
     }
+
+    document.getElementById("view-more").addEventListener("click", function () {
+      window.location.href = "view-recipe.html";
+    });
   </script>
 </html>
