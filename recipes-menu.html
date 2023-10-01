@@ -38,9 +38,9 @@
         img.alt = "Card Image";
 
         //button
-        const link = document.createElement("button");
-        link.name = "view-more";
-        link.textContent = "view more";
+        const button = document.createElement("button");
+        button.id = "view more";
+        button.innerText = "view-more";
 
         //ingredients
         const ingredientsList = document.createElement("ul");
@@ -62,11 +62,14 @@
         card.appendChild(img);
         card.appendChild(ingredientsList);
         card.appendChild(directionsList);
-        card.appendChild(link);
+        card.appendChild(button);
 
         cardContainer.appendChild(card);
       });
     }
+    listener = document.getElementById("view-more").addEventListener("click", function () {
+      console.log("hello world");
+    });
 
     function clearLocalStorage() {
       localStorage.clear("recipeList");

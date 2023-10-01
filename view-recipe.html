@@ -14,20 +14,9 @@
                 <p id="ingredients">
                     INGREDIENTS:
                 </p>
-                <!-- <table>
-                    <col/>
-                    <tr>
-                        <td>austin</td>
-
-                    </tr>
-                    <tr>
-                        <td>austin</td>
-                    </tr>
-                </table> -->
-                <ul>
-                    <li id="unList">
-                        test
-                    </li>
+            
+                <ul id="ingredientList" class="lists">
+                    
                 </ul>
             </div>
 
@@ -35,10 +24,8 @@
                 <p id="directions">
                     DIRECTIONS:
                 </p>
-                <ol>
-                    <li>
-                        test...
-                    </li>
+                <ol id="directionsList" class="lists">
+                
                 </ol>
             </div>            
         </div>
@@ -48,11 +35,27 @@
         // Retrieve recipe data from the localStorage
         const recipe = JSON.parse(localStorage.getItem('recipe'));
         console.log(recipe);
+
+        
         // Display recipe data on the page
         document.getElementById('recipe-picture').src = recipe.pictureImage;
         document.getElementById('recipe-title').innerText = recipe.recipeName;
-        document.getElementById('ingredients').innerText = recipe.ingredients;
-        document.getElementById('directions').innerText = recipe.directions;
+
+        const ingredientsList = document.getElementById("ingredientList");
+        for (i = 0; i < recipe.ingredients.length; i++) {
+          const ingredient = document.createElement("li");
+          ingredient.textContent = recipe.ingredients[i];
+          ingredientsList.appendChild(ingredient);
+        }
+
+
+        const directionsList = document.getElementById("directionsList");
+        for (i = 0; i < recipe.directions.length; i++) {
+          const direction = document.createElement("li");
+          direction.textContent = recipe.directions[i];
+          directionsList.appendChild(direction);
+        }
+
         
     </script>
 </html>

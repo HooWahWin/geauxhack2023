@@ -1,4 +1,3 @@
-let recipeList = [];
 //add ingredient
 document.getElementById("add-ingredient").addEventListener("click", function () {
   const ingredientList = document.getElementById("ingredient-list");
@@ -61,19 +60,17 @@ document.getElementById("recipe-form").addEventListener("submit", function (e) {
   recipe.ingredients = ingredients;
   recipe.directions = directions;
 
-  recipeList.push(recipe);
-
   // resets the forms
   document.getElementById("recipe-name").value = "";
   document.getElementById("picture-image").value = "";
   document.querySelectorAll(".ingredient").forEach((input) => (input.value = ""));
   document.querySelectorAll(".direction").forEach((input) => (input.value = ""));
 
-  JSONArray = JSON.stringify(recipeList);
-  localStorage.setItem("recipeList", JSONArray);
+  JSONArray = JSON.stringify(recipe);
+  localStorage.setItem("recipe", JSONArray);
 
-  console.log(localStorage.getItem("recipeList"));
+  console.log(localStorage.getItem("recipe"));
 
-  window.location.href = "recipes-menu.html";
+  window.location.href = "view-recipe.html";
 });
 //committence
