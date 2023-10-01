@@ -1,70 +1,78 @@
-let recipeListThing = [];
+let recipeList = [];
+//add ingredient
+document.getElementById("add-ingredient").addEventListener("click", function () {
+  const ingredientList = document.getElementById("ingredient-list");
+  const newIngredientItem = document.createElement("div");
+  newIngredientItem.innerHTML = `
+      <input type="text" class="ingredient" required>
+      <button type="button" class="negative">-</button>
+  `;
+  ingredientList.appendChild(newIngredientItem);
+});
 
-// adding and removing fields for the form
-function addField(type) {
-  const container = document.getElementById(type + "-container");
-  const input = document.createElement("input");
-  input.type = "text";
-  input.name = type;
-
-  container.appendChild(input);
-}
-
-function removeField(type) {
-  const container = document.getElementById(type + "-container");
-  if (container.childElementCount > 1) {
-    container.removeChild(container.lastChild);
+// remove ingredient
+document.getElementById("recipe-form").addEventListener("click", function (e) {
+  if (e.target.classList.contains("negative")) {
+    e.target.parentElement.remove();
   }
-}
+});
 
-function submitForm() {
-  if (localStorage.getItem("recipeList") != null) {
-    recipeListThing = JSON.parse(localStorage.getItem("recipeList"));
+// add direction
+document.getElementById("add-direction").addEventListener("click", function () {
+  const directionList = document.getElementById("direction-list");
+  const newDirectionItem = document.createElement("div");
+  newDirectionItem.innerHTML = `
+      <input type="text" class="direction" required>
+      <button type="button" class="negative">-</button>
+  `;
+  directionList.appendChild(newDirectionItem);
+});
+
+// remove direction
+document.getElementById("recipe-form").addEventListener("click", function (e) {
+  if (e.target.classList.contains("negative")) {
+    e.target.parentElement.remove();
   }
+});
+
+document.getElementById("recipe-form").addEventListener("submit", function (e) {
+  e.preventDefault();
+
   if (localStorage.getItem("recipeList") != null) {
     recipeListThing = JSON.parse(localStorage.getItem("recipeList"));
   }
 
   let recipe = {
-    recipeTitle: "",
-    pictureLink: "",
+    recipeName: "",
+    pictureImage: "",
     ingredients: [],
     directions: [],
   };
 
   //query selectors for form elements
-  const recipeTitle = document.getElementById("recipe-title").value;
-  const pictureLink = document.getElementById("picture-link").value;
-  const ingredients = Array.from(document.getElementsByName("ingredients")).map((input) => input.value);
-  const directions = Array.from(document.getElementsByName("directions")).map((input) => input.value);
+  const recipeName = document.getElementById("recipe-name").value;
+  const pictureImage = document.getElementById("picture-image").value;
+  const ingredients = Array.from(document.querySelectorAll(".ingredient")).map((input) => input.value);
+  const directions = Array.from(document.querySelectorAll(".direction")).map((input) => input.value);
 
   //populating the recipe dictionary and adding it to the recipeList array
-  recipe.recipeTitle = recipeTitle;
-  recipe.pictureLink = pictureLink;
+  recipe.recipeName = recipeName;
+  recipe.pictureImage = pictureImage;
   recipe.ingredients = ingredients;
   recipe.directions = directions;
 
-  recipeListThing.push(recipe);
+  recipeList.push(recipe);
 
   // resets the forms
-  document.getElementById("recipe-title").value = "";
-  document.getElementById("picture-link").value = "";
-  document.getElementsByName("ingredients").forEach((input) => (input.value = ""));
-  document.getElementsByName("directions").forEach((input) => (input.value = ""));
+  document.getElementById("recipe-name").value = "";
+  document.getElementById("picture-image").value = "";
+  document.querySelectorAll(".ingredient").forEach((input) => (input.value = ""));
+  document.querySelectorAll(".direction").forEach((input) => (input.value = ""));
 
-  JSONArray = JSON.stringify(recipeListThing);
+  JSONArray = JSON.stringify(recipeList);
   localStorage.setItem("recipeList", JSONArray);
 
   console.log(localStorage.getItem("recipeList"));
 
   window.location.href = "recipes-menu.html";
-}
-
-function backToMenu() {
-  window.location.href = "recipes-menu.html";
-}
-
-function clearLocalStorage() {
-  localStorage.clear("recipeList");
-  console.log(localStorage.getItem("recipeList"));
-}
+});
