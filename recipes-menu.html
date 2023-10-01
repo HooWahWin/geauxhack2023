@@ -34,6 +34,11 @@
         img.src = item.pictureImage;
         img.alt = "Card Image";
 
+        const link = document.createElement("button");
+        link.id = "view-more";
+        // link.href = "view-recipe.html";
+        link.textContent = "view more";
+
         const ingredientsList = document.createElement("ul");
         for (i = 0; i < item.ingredients.length; i++) {
           const ingredient = document.createElement("li");
@@ -52,6 +57,7 @@
         card.appendChild(img);
         card.appendChild(ingredientsList);
         card.appendChild(directionsList);
+        card.appendChild(link);
 
         cardContainer.appendChild(card);
       });

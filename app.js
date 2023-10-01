@@ -39,7 +39,7 @@ document.getElementById("recipe-form").addEventListener("submit", function (e) {
   e.preventDefault();
 
   if (localStorage.getItem("recipeList") != null) {
-    recipeListThing = JSON.parse(localStorage.getItem("recipeList"));
+    recipeList = JSON.parse(localStorage.getItem("recipeList"));
   }
 
   let recipe = {
