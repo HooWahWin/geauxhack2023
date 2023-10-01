@@ -1,41 +1,49 @@
-
-
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href="recipe.css" text="text/css"/>
-        <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="view.css" text="text/css"/>
 
+    <head>
+        <title>View-Recipe</title>
     </head>
-    <div class = "recipetitle">
-    </div>
-    <div class = "picture">
-        <img id='recipe-picture', src="https://picsum.photos/500" alt = "Picture of food" >
-    </div>
-    
+
     <body>
-        <h1 id='recipe-title'></h1>
-        <div>
-            <div id="column">
-                <div class="ingredients">
-                    <p>
-                        Ingredients:
-                    </p>
-                </div>
-                <div class= "directions">
-                    <p>
-                        Directions:
-                    </p>
-                    
-                </div>
+        <img id='recipe-picture', src="https://picsum.photos/500" alt = "Picture of food" >
+        <h1>Add The Recipe Name Here</h1>
+        <div class="row">
+            <div class="column" id="colIng">
+                <p id="ingredients">
+                    INGREDIENTS:
+                </p>
+                <!-- <table>
+                    <col/>
+                    <tr>
+                        <td>austin</td>
+
+                    </tr>
+                    <tr>
+                        <td>austin</td>
+                    </tr>
+                </table> -->
+                <ul>
+                    <li id="unList">
+                        test
+                    </li>
+                </ul>
             </div>
-            
+
+            <div class= "column">
+                <p id="directions">
+                    DIRECTIONS:
+                </p>
+                <ol>
+                    <li>
+                        test...
+                    </li>
+                </ol>
+            </div>            
         </div>
     </body>
 
-
-
-    
     <script>
         // Retrieve recipe data from the localStorage
         const recipe = JSON.parse(localStorage.getItem('recipe'));
@@ -58,9 +66,12 @@
                 listItem.textContent = direction;
                 directionsList.appendChild(listItem);
             });
+        } else {
+            alert('Recipe data not found.');
+            window.location.href = 'add-recipe.html';
         }
+        
     </script>
-</body>
 </html>
 
 
@@ -133,4 +144,9 @@
             margin-bottom: 10px;
         }
     </style>
-    -->
+
+
+
+
+
+         

@@ -1,0 +1,82 @@
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0%;
+  padding: 3%;
+  background-color: beige;
+  background: cover;
+  height: 100%;
+}
+
+#middleBlock {
+  text-align: center;
+  font-size: 35px;
+}
+
+img {
+  border-radius: 100%;
+  overflow: hidden;
+  background-color: blue;
+  top: 30%;
+  width: 700px;
+  height: 700px;
+}
+h1 {
+  position: absolute;
+  padding: 3%;
+  margin: 0%;
+  background-color: white;
+  right: 20%;
+  top: 50%;
+  font-size: 50px;
+}
+
+.column {
+  margin-top: 5%;
+  background-color: white;
+  float: left;
+  width: 50%;
+}
+/* Clear floats after the columns /
+.row:after {
+    display: flex;
+    justify-content: center;
+    content: "";
+    display: table;
+    clear: both;
+}
+#colIng{
+    column-width: 30%;
+}
+
+#directions, #ingredients{
+    text-align: center;
+    font-size: 25px;
+    font-weight: bolder;
+}
+ul{
+    list-style-type: none;
+}
+ol, ul{
+   display: flex;
+   justify-content: center;
+   text-align: center;
+   font-size: 30px;
+   margin: 0%;
+   padding: 0%;
+}
+li{
+    padding-bottom: 3%;
+}
+
+button{
+    display: none;
+}
+/ 
+table{
+    display: flex;
+    justify-content: center;
+    background-color: blue;
+} */
