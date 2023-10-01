@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
     <link rel="stylesheet" href="view.css" text="text/css"/>
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Macondo&family=Oxygen:wght@700&display=swap" rel="stylesheet">
     <head>
         <title>View-Recipe</title>
     </head>
 
     <body>
-        <img id='recipe-picture', src="https://picsum.photos/500" alt = "Picture of food" >
+        <img id='recipe-picture', src="https://picsum.photos/500" alt="">
         <h1 id="recipe-title">Add The Recipe Name Here</h1>
         <div class="row">
             <div class="column" id="colIng">
@@ -20,7 +22,7 @@
                 </ul>
             </div>
 
-            <div class= "column">
+            <div class= "column" id="colDir">
                 <p id="directions">
                     DIRECTIONS:
                 </p>
@@ -29,6 +31,9 @@
                 </ol>
             </div>            
         </div>
+        <button class = "menubutton" type = "button" id = "return--" onclick="returnToAdd()">
+           return to menu
+        </button>
     </body>
 
     <script>
@@ -39,6 +44,8 @@
         
         // Display recipe data on the page
         document.getElementById('recipe-picture').src = recipe.pictureImage;
+        
+        
         document.getElementById('recipe-title').innerText = recipe.recipeName;
 
         const ingredientsList = document.getElementById("ingredientList");
@@ -56,7 +63,10 @@
           directionsList.appendChild(direction);
         }
 
-        
+        function returnToAdd(){
+            window.location.href="add-recipe.html";
+        }
+
     </script>
 </html>
 
