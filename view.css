@@ -92,6 +92,7 @@ li {
 @media print {
   .menubutton {
     display: none;
+    font-family: "Oxygen", Courier, monospace;
   }
 }
 
