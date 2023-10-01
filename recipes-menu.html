@@ -39,7 +39,7 @@
 
         //button
         const link = document.createElement("button");
-        link.id = "view-more";
+        link.name = "view-more";
         link.textContent = "view more";
 
         //ingredients
@@ -73,9 +73,5 @@
       console.log(localStorage.getItem("recipeList"));
       location.reload();
     }
-
-    document.getElementById("view-more").addEventListener("click", function () {
-      window.location.href = "view-recipe.html";
-    });
   </script>
 </html>
